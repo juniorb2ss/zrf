@@ -1,6 +1,7 @@
 {
     "name": "zrf/query",
-    "description": "",
+    "description": "Pacote para consultas na Receita Federal",
+    "license":  "MIT",
     "authors": [
         {
             "name": "Carlos Eduardo",
