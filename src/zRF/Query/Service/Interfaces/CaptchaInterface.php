@@ -1,38 +1,39 @@
-<?php namespace namespace zRF\Query\Service\Interfaces;
+<?php
+namespace zRF\Query\Service\Interfaces;
 
 /**
-* 
+*
 */
 interface CaptchaInterface
 {
-	/**
-	 * [$credentials description]
-	 * @var array
-	 */
-	private $credentials;
+    /**
+     * [$credentials description]
+     * @var array
+     */
+    private $credentials;
 
-	/**
-	 * [$service description]
-	 * @var [type]
-	 */
-	private $service;
+    /**
+     * [$service description]
+     * @var [type]
+     */
+    private $service;
 
-	/**
-	 * [initialize description]
-	 * @return [type] [description]
-	 */
-	public function initialize();
+    /**
+     * [initialize description]
+     * @return [type] [description]
+     */
+    public function initialize();
 
-	/**
-	 * [decode description]
-	 * @param  [type] $file    [description]
-	 * @param  [type] $timeout [description]
-	 * @return string
-	 */
-	public function decode($file, $timeout);
+    /**
+     * [decode description]
+     * @param  [type] $file    [description]
+     * @param  [type] $timeout [description]
+     * @return string
+     */
+    public function decode($file, $timeout);
 
-	/**
-	 * [setCredentials description]
-	 */
-	public function setCredentials($credentials);
+    /**
+     * [setCredentials description]
+     */
+    public function setCredentials($credentials);
 }

@@ -1,4 +1,5 @@
-<?php namespace zRF\Query;
+<?php
+namespace zRF\Query;
 
 use Exception;
 use zRF\Query\Service\Client;
@@ -12,60 +13,60 @@ use zRF\Query\Exception\InvalidCaptcha;
 use zRF\Query\Exception\NoCaptchaResponse;
 use zRF\Query\Exception\NoServiceResponse;
 /**
-* 
+*
 */
 class Search
 {
-	/**
-	 * [$instance description]
-	 * @var [type]
-	 */
-	private static $instance;
+    /**
+     * [$instance description]
+     * @var [type]
+     */
+    private static $instance;
 
-	/**
-	 * [$cookie description]
-	 * @var [type]
-	 */
-	private static $cookie;
+    /**
+     * [$cookie description]
+     * @var [type]
+     */
+    private static $cookie;
 
-	/**
-	 * [$document description]
-	 * @var [type]
-	 */
-	private static $document;
+    /**
+     * [$document description]
+     * @var [type]
+     */
+    private static $document;
 
-	/**
-	 * [$reponse description]
-	 * @var [type]
-	 */
-	private static $response;
+    /**
+     * [$reponse description]
+     * @var [type]
+     */
+    private static $response;
 
-	/**
-	 * [$captcha description]
-	 * @var [type]
-	 */
-	private static $captcha;
+    /**
+     * [$captcha description]
+     * @var [type]
+     */
+    private static $captcha;
 
-	/**
-	 * [$image description]
-	 * @var [type]
-	 */
-	private static $image;
+    /**
+     * [$image description]
+     * @var [type]
+     */
+    private static $image;
 
-	/**
+    /**
      * Metodo para capturar o captcha e cookie para ser enviado para próxima consulta
-     * 
+     *
      * Este método basicamente faz uma chamada primária para o serviço, capturando o cookie da requisição
      * este mesmo cookie deverá ser informado para as requisições posteriores, mantendo integridade sempre do
      * mesmo captcha e consulta.
-     * 
+     *
      * @param  string $cnpj CNPJ da empresa que deverá ser consultado
      * @throws Exception
      * @return array Link para ver o Captcha e Cookie
      */
     private static function getParams() {
         // instancia o client http
-        self::$instance = new Client(); 
+        self::$instance = new Client();
 
         // Executa um request para URL do serviço, retornando o cookie da requisição primária
         self::$instance->request('GET', 'http://www.receita.fazenda.gov.br/pessoajuridica/cnpj/cnpjreva/Cnpjreva_Solicitacao2.asp');
@@ -78,32 +79,32 @@ class Search
 
         // Inicia uma requisição para capturar a imagem do captcha
         // informando cookie da requisição passada e os headers
-        // 
+        //
         // to-do: implementar guzzlehttp?
         // ele é melhor que o curl? ou mais organizado?
         $curl->init('http://www.receita.fazenda.gov.br/pessoajuridica/cnpj/cnpjreva/captcha/gerarCaptcha.asp');
-        
+
         // headers da requisição
-       	$curl->options([
-        	            CURLOPT_COOKIEJAR => 'cookiejar',
-        	            CURLOPT_HTTPHEADER => array(
-        	                "Pragma: no-cache",
-        	                "Origin: http://www.receita.fazenda.gov.br",
-        	                "Host: www.receita.fazenda.gov.br",
-        	                "User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
-        	                "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        	                "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
-        	                "Accept-Encoding: gzip, deflate",
-        	                "Referer: http://www.receita.fazenda.gov.br/pessoajuridica/cnpj/cnpjreva/cnpjreva_solicitacao2.asp",
-        	                "Cookie: flag=1; ". self::$cookie,
-        	                "Connection: keep-alive"
-        	            ),
-        	            CURLOPT_RETURNTRANSFER => true,
-        	            CURLOPT_FOLLOWLOCATION => 1,
-        	            CURLOPT_BINARYTRANSFER => TRUE,
+        $curl->options([
+                        CURLOPT_COOKIEJAR => 'cookiejar',
+                        CURLOPT_HTTPHEADER => array(
+                            "Pragma: no-cache",
+                            "Origin: http://www.receita.fazenda.gov.br",
+                            "Host: www.receita.fazenda.gov.br",
+                            "User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0",
+                            "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                            "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
+                            "Accept-Encoding: gzip, deflate",
+                            "Referer: http://www.receita.fazenda.gov.br/pessoajuridica/cnpj/cnpjreva/cnpjreva_solicitacao2.asp",
+                            "Cookie: flag=1; ". self::$cookie,
+                            "Connection: keep-alive"
+                        ),
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_FOLLOWLOCATION => 1,
+                        CURLOPT_BINARYTRANSFER => TRUE,
                         CURLOPT_CONNECTTIMEOUT => 10,
                         CURLOPT_TIMEOUT => 10,
-               	]);
+                ]);
 
         // executa o curl, logo após fechando a conexão
         $curl->exec();
@@ -112,14 +113,14 @@ class Search
         // captura do retorno do curl
         // o esperado deverá ser o HTML da imagem
         self::$captcha = $curl->response();
-        
+
         // é uma imagem o retorno?
         if(@imagecreatefromstring(self::$captcha) == false)
         {
             throw new NoCaptchaResponse('Não foi possível capturar o captcha');
         }
 
-        // constroe o base64 da imagem para o usuário digitar 
+        // constroe o base64 da imagem para o usuário digitar
         // to-do: um serviço automatizado para decifrar o captcha?
         // talvez deathbycaptcha?
         self::$image = 'data:image/png;base64,' . base64_encode(self::$captcha);
@@ -127,15 +128,15 @@ class Search
 
     /**
      * Retorna string da imagem do captcha capturado anteriormente.
-     * 
+     *
      * @return string Base64_encode($image)
      */
     public static function image($returnUrl = false)
     {
-    	# has instance?
-    	if(!self::$instance){
-    		self::getParams();
-    	}
+        # has instance?
+        if(!self::$instance){
+           self::getParams();
+        }
 
         $imageBase64 = self::$image;
         $path = null;
@@ -149,12 +150,12 @@ class Search
      */
     public static function cookie()
     {
-    	# has instance?
-    	if(!self::$instance){
-    		self::getParams();
-    	}
+        # has instance?
+        if(!self::$instance){
+           self::getParams();
+        }
 
-    	return self::$cookie;
+        return self::$cookie;
     }
 
     /**
@@ -164,7 +165,7 @@ class Search
      */
     private function saveImage($image)
     {
-        
+
     }
 
     /**
@@ -178,9 +179,9 @@ class Search
      */
     public static function search($cnpj, $captcha, $stringCookie)
     {
-    	if(!Util::isCnpj($cnpj)){
-    		throw new InvalidInputs('CNPJ informado é inválido', 99);     
-    	}
+        if(!Util::isCnpj($cnpj)){
+            throw new InvalidInputs('CNPJ informado é inválido', 99);
+        }
 
         // prepara o form
         $postParams = [
@@ -196,7 +197,7 @@ class Search
 
         // vamos registrar qual serviço será consultado
         $curl->init('http://www.receita.fazenda.gov.br/pessoajuridica/cnpj/cnpjreva/valida.asp');
-            
+
         // define os headers para requisição curl.
         $curl->options(
             array(
@@ -229,7 +230,7 @@ class Search
         $html = $curl->response();
 
         if(empty($html)) {
-            throw new NoServiceResponse('No response from service', 99);       
+            throw new NoServiceResponse('No response from service', 99);
         }
 
         $crawler = new Crawler($html);

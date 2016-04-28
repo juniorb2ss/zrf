@@ -1,5 +1,4 @@
 <?php
-
 namespace zRF\Query;
 
 use Illuminate\Support\ServiceProvider;

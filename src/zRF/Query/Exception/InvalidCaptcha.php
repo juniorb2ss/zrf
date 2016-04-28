@@ -1,7 +1,7 @@
-<?php namespace zRF\Query\Exception;
+<?php
+namespace zRF\Query\Exception;
 
-use Exception;
 /**
-* 
+*
 */
-class InvalidCaptcha extends Exception { }
+class InvalidCaptcha extends \Exception { }
