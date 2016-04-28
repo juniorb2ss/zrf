@@ -178,6 +178,9 @@ class Search
      */
     public static function search($cnpj, $captcha, $stringCookie)
     {
+    	if(!Util::isCnpj($cnpj)){
+    		throw new InvalidInputs('CNPJ informado é inválido', 99);     
+    	}
 
         // prepara o form
         $postParams = [
