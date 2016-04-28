@@ -1,8 +1,7 @@
-<?php namespace zRF\Query\Exception;
-
-use Exception;
+<?php
+namespace zRF\Query\Exception;
 
 /**
-* 
+*
 */
-class InvalidInputs extends Exception { }
+class InvalidInputs extends \Exception { }
