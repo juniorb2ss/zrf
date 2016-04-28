@@ -3,7 +3,7 @@
 Pacote para buscar informações na Receita Federal referente a um CNPJ.
 
 É feito uma requisição no serviço, retornando `cookie` e `captcha` do serviço. Após usuário informar
-o captacha é feito outra requisição, retornando informações do CNPJ.
+o captcha é feito outra requisição, retornando informações do CNPJ.
 
 Este pacote deverá ser usado com responsabilidade, o autor e contribuidores não devem responder pelas implementações/ações feita com este pacote.
 
