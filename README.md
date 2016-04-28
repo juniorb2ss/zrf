@@ -44,6 +44,7 @@ Deseja contribuir com desenvolvimento? pull request :)
 - Implementar serviço `DeathByCaptcha`
 - Criar API de consulta
 - Repositório de imagem
+- Testes unitários
 
 License
 ----
