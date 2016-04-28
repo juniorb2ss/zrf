@@ -1,0 +1,23 @@
+{
+    "name": "zrf/query",
+    "description": "",
+    "authors": [
+        {
+            "name": "Carlos Eduardo",
+            "email": "juniorb2ss@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "5.1.*",
+        "fabpot/goutte": "^3.1",
+        "jansenfelipe/utils": "^2.0",
+        "intervention/image": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "zRF\\Query\\": "src/zRF/Query"
+        }
+    },
+    "minimum-stability": "stable"
+}
