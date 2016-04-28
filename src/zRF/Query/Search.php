@@ -54,6 +54,12 @@ class Search
     private static $image;
 
     /**
+     * [$erroSelector description]
+     * @var string
+     */
+    private static $erroSelector = 'body > table:nth-child(3) > tr:nth-child(2) > td > b > font';
+
+    /**
      * Metodo para capturar o captcha e cookie para ser enviado para próxima consulta
      *
      * Este método basicamente faz uma chamada primária para o serviço, capturando o cookie da requisição
@@ -179,7 +185,7 @@ class Search
      */
     public static function search($cnpj, $captcha, $stringCookie)
     {
-        if(!Util::isCnpj($cnpj)){
+        if(!Utils::isCnpj($cnpj)){
             throw new InvalidInputs('CNPJ informado é inválido', 99);
         }
 
@@ -238,6 +244,14 @@ class Search
         // CNPJ informado é válido?
         if($crawler->filter('#imgCaptcha')->count()){
             throw new InvalidCaptcha('Captcha inválido', 99);
+        }
+
+        // verifica se a página seguida na requisição 
+        // é página de erro da receita federal
+        $error = $crawler->filter(self::$erroSelector);
+
+        if($error->count()){
+             throw new InvalidInputs(trim($error->text()), 99);
         }
 
         return $crawler;
