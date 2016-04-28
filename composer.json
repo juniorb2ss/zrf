@@ -10,7 +10,6 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "illuminate/support": "5.1.*",
         "fabpot/goutte": "^3.1",
         "jansenfelipe/utils": "^2.0",
         "intervention/image": "^2.3"
