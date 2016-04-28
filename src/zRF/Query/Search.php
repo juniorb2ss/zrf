@@ -232,10 +232,6 @@ class Search
         $crawler = new Crawler($html);
 
         // CNPJ informado é válido?
-        if($crawler->filter('#imgCaptcha')->count()) {
-             throw new Exception('Captcha inválido', 99);
-        }
-
         if($crawler->filter('#imgCaptcha')->count()){
             throw new InvalidCaptcha('Captcha inválido', 99);
         }
