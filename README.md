@@ -24,12 +24,12 @@ $ composer require zrf/query
 ```php
 <?php
 
-zRF\Query\Search as zRF;
+use zRF\Query\Search as zRF;
 
 $cookie = zRF::cookie(); // retorna cookie para uso
-$captcha = zRF::image(); // base64 do captcha
+$base64Image = zRF::image(); // base64 do captcha
 
-// ..
+// ...
 
 // Informe para o método search o CNPJ, o captcha digitado e o cookie
 zRF::search($cnpj, $digits, $cookie);
@@ -37,6 +37,7 @@ zRF::search($cnpj, $digits, $cookie);
 
 ### Retorno
 ![Retorno](http://s32.postimg.org/s8oinndcl/Screenshot_from_2016_04_28_17_41_43.png)
+
 ### Desenvolvimento
 Deseja contribuir com desenvolvimento? pull request :)
 
