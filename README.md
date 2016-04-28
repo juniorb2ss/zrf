@@ -8,6 +8,7 @@ o captacha é feito outra requisição, retornando informações do CNPJ.
 Este pacote deverá ser usado com responsabilidade, o autor e contribuidores não devem responder pelas implementações/ações feita com este pacote.
 
 ### Atenção
+
 Este pacote foi desenvolvido com o intuito de facilidade consultas através de ERP ou serviços que necessitam de consistência de dados. Não foi criado com o intuito de ser utilizado como `bot`
 
 Toda implementação será de sua responsabilidade.
@@ -18,9 +19,10 @@ Toda implementação será de sua responsabilidade.
 ### Instalação
 
 ```sh
-$ composer require zrf/query
+$ composer require zrf/query 1.*
 ```
 ### Exemplo
+
 ```php
 <?php
 
@@ -36,7 +38,7 @@ zRF::search($cnpj, $digits, $cookie);
 ```
 
 ### Retorno
-![Retorno](http://s32.postimg.org/s8oinndcl/Screenshot_from_2016_04_28_17_41_43.png)
+![Retorno](http://s32.postimg.org/r60gurdg5/Screenshot_from_2016_04_28_18_43_13.png)
 
 ### Desenvolvimento
 Deseja contribuir com desenvolvimento? pull request :)
