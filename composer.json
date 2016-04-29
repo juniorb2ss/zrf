@@ -1,13 +1,16 @@
 {
     "name": "zrf/query",
-    "description": "Pacote para consultas na Receita Federal",
-    "license":  "MIT",
-    "authors": [
+     "authors": [
         {
-            "name": "Carlos Eduardo",
-            "email": "juniorb2ss@gmail.com"
+          "name": "Carlos Eduardo",
+          "email": "juniorb2ss@gmail.com",
+          "homepage": "https://medium.com/@juniorb2s/"
         }
     ],
+    "description": "Pacote para consultas na Receita Federal",
+    "keywords": ["receita", "federal", "consulta", "cnpj", "laravel"],
+    "type": "package",
+    "license":  "MIT",
     "require": {
         "php": ">=5.5.9",
         "fabpot/goutte": "^3.1",
