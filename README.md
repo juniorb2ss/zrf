@@ -25,6 +25,8 @@ $ composer require zrf/query 1.*
 ```
 ### Exemplo
 
+Online: http://mysterious-dusk-59440.herokuapp.com/zrf/query
+
 ```php
 <?php
 
