@@ -16,8 +16,8 @@ Este pacote foi desenvolvido com o intuito de facilidade consultas através de E
 
 Toda implementação será de sua responsabilidade.
 
-### Version
-1.0.0
+### Version Stable
+1.0.4
 
 ### Instalação
 
@@ -52,7 +52,6 @@ Deseja contribuir com desenvolvimento? pull request :)
 - Implementar serviço `DeathByCaptcha`
 - Criar API de consulta
 - Repositório de imagem
-- Testes unitários
 
 License
 ----
