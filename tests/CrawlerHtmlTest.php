@@ -24,8 +24,8 @@ class CrawlerHtmlTest extends PHPUnit_Framework_TestCase
     	$scrapped = $crawler->scraping();
 
     	$this->assertTrue(
-	    		is_array($scrapped), 
-	    		'Scraped not is type of array'
+	    		(is_array($scrapped) && count($scrapped) > 0), 
+	    		'Type of scraped crawler not is valid array'
 	    	);
 
 		return json_encode($scrapped);
