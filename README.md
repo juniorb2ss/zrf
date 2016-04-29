@@ -1,9 +1,11 @@
 # zRFQuery
 
+[![Latest Stable Version](https://poser.pugx.org/zrf/query/v/stable)](https://packagist.org/packages/zrf/query) [![Total Downloads](https://poser.pugx.org/zrf/query/downloads)](https://packagist.org/packages/zrf/query) [![Latest Unstable Version](https://poser.pugx.org/zrf/query/v/unstable)](https://packagist.org/packages/zrf/query) [![License](https://poser.pugx.org/zrf/query/license)](https://packagist.org/packages/zrf/query)
+
 Pacote para buscar informações na Receita Federal referente a um CNPJ.
 
 É feito uma requisição no serviço, retornando `cookie` e `captcha` do serviço. Após usuário informar
-o captacha é feito outra requisição, retornando informações do CNPJ.
+o captcha é feito outra requisição, retornando informações do CNPJ.
 
 Este pacote deverá ser usado com responsabilidade, o autor e contribuidores não devem responder pelas implementações/ações feita com este pacote.
 
