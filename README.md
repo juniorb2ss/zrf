@@ -1,6 +1,7 @@
 # zRFQuery
 
 [![Latest Stable Version](https://poser.pugx.org/zrf/query/v/stable)](https://packagist.org/packages/zrf/query) [![Total Downloads](https://poser.pugx.org/zrf/query/downloads)](https://packagist.org/packages/zrf/query) [![Latest Unstable Version](https://poser.pugx.org/zrf/query/v/unstable)](https://packagist.org/packages/zrf/query) [![License](https://poser.pugx.org/zrf/query/license)](https://packagist.org/packages/zrf/query)
+[![Build Status](https://travis-ci.org/juniorb2ss/zrf.svg?branch=master)](https://travis-ci.org/juniorb2ss/zrf)
 
 Pacote para buscar informações na Receita Federal referente a um CNPJ.
 
