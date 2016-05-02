@@ -23,5 +23,8 @@
             "zRF\\Query\\": "src/zRF/Query"
         }
     },
+    "suggest": {
+        "zservices/query": "Pacote para consultas de CNPJ,IE e CPF portais federais e estaduais."
+    },
     "minimum-stability": "stable"
 }
