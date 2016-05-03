@@ -1,12 +1,9 @@
 # zRFQuery
 
+
 # Atenção
 
-Este pacote esta em pleno funcionamento.
-
-Porém foi desenvolvido um pacote que extende as funcionalidades deste, implementando mais portais, como por exemplo Sintegra.
-
-https://github.com/juniorb2ss/zServices
+Este pacote foi descontinuado, faça uso do novo em: https://github.com/juniorb2ss/zServices
 
 [![Latest Stable Version](https://poser.pugx.org/zrf/query/v/stable)](https://packagist.org/packages/zrf/query) [![Total Downloads](https://poser.pugx.org/zrf/query/downloads)](https://packagist.org/packages/zrf/query) [![Latest Unstable Version](https://poser.pugx.org/zrf/query/v/unstable)](https://packagist.org/packages/zrf/query) [![License](https://poser.pugx.org/zrf/query/license)](https://packagist.org/packages/zrf/query)
 [![Build Status](https://travis-ci.org/juniorb2ss/zrf.svg?branch=master)](https://travis-ci.org/juniorb2ss/zrf)
